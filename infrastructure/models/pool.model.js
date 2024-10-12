@@ -4,9 +4,10 @@ const sequelize = require('../../config/sequelize');
 const Pool = sequelize.define('Pool', {
   id: {
     type: DataTypes.INTEGER,
-    allowNull: true,
+    //allowNull: true,
     field: 'id',
     primaryKey: true,
+    autoIncrement: true
   },
   name: {
     type: DataTypes.STRING,
