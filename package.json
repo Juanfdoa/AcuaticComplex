@@ -1,15 +1,17 @@
 {
   "name": "acuatic-complex",
   "version": "1.0.0",
+  "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node app.js",
-    "dev": "nodemon app.js"
+    "dev": "nodemon --exec babel-node src/app.js",
+    "clean": "rm -rf dist && mkdir dist",
+    "build": "babel src -d dist",
+    "start": "npm run build && node dist/app.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
   "dependencies": {
     "dotenv": "^16.4.5",
     "express": "^4.21.1",
@@ -18,6 +20,12 @@
     "sequelize": "^6.37.4"
   },
   "devDependencies": {
+    "@babel/cli": "^7.25.7",
+    "@babel/core": "^7.25.8",
+    "@babel/node": "^7.25.7",
+    "@babel/plugin-transform-runtime": "^7.25.7",
+    "@babel/preset-env": "^7.25.8",
+    "@babel/runtime": "^7.25.7",
     "nodemon": "^3.1.7",
     "sequelize-cli": "^6.6.2"
   }

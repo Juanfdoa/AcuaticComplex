@@ -1,7 +1,7 @@
-const { DataTypes } = require('sequelize');
-const sequelize = require('../../config/sequelize');
+import { DataTypes } from 'sequelize';
+import sequelize from '../../config/sequelize.js';
 
-const Pool = sequelize.define('Pool', {
+const Pools = sequelize.define('Pools', {
   id: {
     type: DataTypes.INTEGER,
     //allowNull: true,
@@ -15,8 +15,8 @@ const Pool = sequelize.define('Pool', {
     field: 'piscina'
   }
 }, {
-  tableName: 'piscinas',  
-  timestamps: false, 
+  tableName: 'piscinas',
+  timestamps: false,
 });
 
-module.exports = Pool;
+export default Pools;

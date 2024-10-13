@@ -1,8 +1,8 @@
-const poolRepository = require('../../infrastructure/repositories/pool.repository');
+import poolsRepository from '../../infrastructure/repositories/pools.Repository.js';
 
-class PoolService {
+class PoolsService {
   async getAllPools(name) {
-    var pools = await poolRepository.findAll();
+    var pools = await poolsRepository.findAll();
     if (name) {
       const nameLowerCase = name.toLowerCase();
       return pools.filter(pool => pool.name.toLowerCase().includes(nameLowerCase));
@@ -11,26 +11,26 @@ class PoolService {
   }
 
   async getPoolById(id) {
-    return await poolRepository.findById(id);
+    return await poolsRepository.findById(id);
   }
 
   async createPool(poolData) {
     var name = poolData.name.toLowerCase();
-    var pool = await poolRepository.findBy({ name });
+    var pool = await poolsRepository.findBy({ name });
     if (pool) 
     {
       throw new Error('Ya existe una piscina con ese nombre');
     }
-    return await poolRepository.create(poolData);
+    return await poolsRepository.create(poolData);
   }
 
   async updatePool(id, poolData) {
-    return await poolRepository.update(id, poolData);
+    return await poolsRepository.update(id, poolData);
   }
 
   async deletePool(id) {
-    return await poolRepository.delete(id);
+    return await poolsRepository.delete(id);
   }
 }
 
-module.exports = new PoolService();
+export default new PoolsService();

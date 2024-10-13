@@ -1,10 +1,10 @@
-const poolService = require('../core/services/pool.service');
+import poolsService from '../core/services/pools.Service.js';
 
-class PoolController {
+class PoolsController {
   async getAllPools(req, res) {
     try {
       const{ name } = req.query;
-      const pools = await poolService.getAllPools(name);
+      const pools = await poolsService.getAllPools(name);
       res.status(200).json(pools);
     } catch (error) {
       res.status(500).json({ message: 'Error al obtener las piscinas' });
@@ -14,7 +14,7 @@ class PoolController {
   async getPoolById(req, res) {
     const { id } = req.params;
     try {
-      const pool = await poolService.getPoolById(id);
+      const pool = await poolsService.getPoolById(id);
       if (pool) {
         res.status(200).json(pool);
       } else {
@@ -27,12 +27,13 @@ class PoolController {
 
   async createPool(req, res) {
     try {
-      const newPool = await poolService.createPool(req.body);
+      const newPool = await poolsService.createPool(req.body);
       res.status(201).json(newPool);
     } catch (error) {
       if (error.message === 'Ya existe una piscina con ese nombre') {
         res.status(400).json({ message: error.message });
       } else {
+        console.log(error);
         res.status(500).json({ message: 'Error al crear la piscina' }); 
       }
     }
@@ -41,7 +42,7 @@ class PoolController {
   async updatePool(req, res) {
     const { id } = req.params;
     try {
-      const updatedPool = await poolService.updatePool(id, req.body);
+      const updatedPool = await poolsService.updatePool(id, req.body);
       if (updatedPool) {
         res.status(200).json(updatedPool);
       } else {
@@ -55,7 +56,7 @@ class PoolController {
   async deletePool(req, res) {
     const { id } = req.params;
     try {
-      const deletedPool = await poolService.deletePool(id);
+      const deletedPool = await poolsService.deletePool(id);
       if (deletedPool) {
         res.status(200).json({ message: 'Piscina eliminada' });
       } else {
@@ -67,4 +68,4 @@ class PoolController {
   }
 }
 
-module.exports = new PoolController();
+export default new PoolsController();
