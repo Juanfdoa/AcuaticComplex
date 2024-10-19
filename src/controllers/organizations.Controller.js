@@ -1,9 +1,9 @@
-import OrganizationsService from '../core/services/organizations.service.js';
+import organizationsService from '../core/services/organizations.Service.js';
 
 class OrganizationsController {
     async getAllOrganizations(req, res) {
         try {
-            const organizations = await OrganizationsService.getAllOrganizations();
+            const organizations = await organizationsService.getAllOrganizations();
             res.status(200).json(organizations);
         } catch (error) {
             res.status(500).json({ message: 'Error al obtener las organizaciones' });
@@ -13,7 +13,7 @@ class OrganizationsController {
     async getOrganizationById(req, res) {
         const { id } = req.params;
         try {
-            const organization = await OrganizationsService.getOrganizationById(id);
+            const organization = await organizationsService.getOrganizationById(id);
             if (organization) {
                 res.status(200).json(organization);
             } else {
@@ -26,7 +26,7 @@ class OrganizationsController {
 
     async createOrganization(req, res) {
         try {
-            const newOrganization = await OrganizationsService.createOrganization(req.body);
+            const newOrganization = await organizationsService.createOrganization(req.body);
             res.status(201).json(newOrganization);
         } catch (error) {
             if (error.message === 'Ya existe una organización con ese nombre') {
@@ -41,7 +41,7 @@ class OrganizationsController {
     async updateOrganization(req, res) {
         const { id } = req.params;
         try {
-            const updatedOrganization = await OrganizationsService.updateOrganization(id, req.body);
+            const updatedOrganization = await organizationsService.updateOrganization(id, req.body);
             if (updatedOrganization) {
                 res.status(200).json(updatedOrganization);
             } else {
@@ -55,7 +55,7 @@ class OrganizationsController {
     async deleteOrganization(req, res) {
         const { id } = req.params;
         try {
-            const deletedOrganization = await OrganizationsService.deleteOrganization(id);
+            const deletedOrganization = await organizationsService.deleteOrganization(id);
             if (deletedOrganization) {
                 res.status(200).json({ message: 'Organización eliminada' });
             } else {

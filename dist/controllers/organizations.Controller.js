@@ -9,7 +9,7 @@ var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"))
 var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/asyncToGenerator"));
 var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
 var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));
-var _organizationsService = _interopRequireDefault(require("../core/services/organizations.service.js"));
+var _organizationsService = _interopRequireDefault(require("../core/services/organizations.Service.js"));
 var OrganizationsController = /*#__PURE__*/function () {
   function OrganizationsController() {
     (0, _classCallCheck2["default"])(this, OrganizationsController);

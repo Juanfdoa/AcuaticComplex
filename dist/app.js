@@ -19,11 +19,6 @@ app.use('/api/organizations', _organizationsRoutes["default"]);
 app.set('PORT', process.env.PORT || 3000);
 
 // Iniciar el servidor
-//app.listen(app.get('PORT'), () => {
-//  console.log(`Servidor escuchando en el puerto`, app.get('PORT'));
-//});
-
-var PORT = process.env.PORT || 3000;
-app.listen(PORT, function () {
-  console.log("Server is running on port ".concat(PORT));
+app.listen(app.get('PORT'), function () {
+  console.log("Servidor escuchando en el puerto", app.get('PORT'));
 });

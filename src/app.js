@@ -11,18 +11,13 @@ app.use(express.json());
 
 //Routes
 app.use('/api/pools', poolsRoutes);
-//app.use('/api/organizations', organizationsRoutes);
+app.use('/api/organizations', organizationsRoutes);
 
 
 // Configuración del puerto
 app.set('PORT', process.env.PORT || 3000);
 
 // Iniciar el servidor
-//app.listen(app.get('PORT'), () => {
-//  console.log(`Servidor escuchando en el puerto`, app.get('PORT'));
-//});
-
-const PORT = process.env.PORT || 3000; 
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+app.listen(app.get('PORT'), () => {
+  console.log(`Servidor escuchando en el puerto`, app.get('PORT'));
 });
