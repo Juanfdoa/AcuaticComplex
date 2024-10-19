@@ -3,6 +3,7 @@ const app = express();
 
 //Routes
 import poolsRoutes from './routes/pools.Routes.js';
+import organizationsRoutes from './routes/organizations.Routes.js';
 
 
 // Middlewares
@@ -10,6 +11,7 @@ app.use(express.json());
 
 //Routes
 app.use('/api/pools', poolsRoutes);
+app.use('/api/organizations', organizationsRoutes);
 
 
 // Configuración del puerto
