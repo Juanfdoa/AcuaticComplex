@@ -24,8 +24,8 @@ class PoolsService {
   }
 
   async createPool(poolData) {
-    var name = poolData.name.toLowerCase();
-    var pool = await poolsRepository.findBy({ name });
+    const name = poolData.name.toLowerCase();
+    const pool = await poolsRepository.findBy({ name });
     if (pool) 
     {
       throw new Error('Ya existe una piscina con ese nombre');
