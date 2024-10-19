@@ -11,7 +11,7 @@ app.use(express.json());
 
 //Routes
 app.use('/api/pools', poolsRoutes);
-app.use('/api/organizations', organizationsRoutes);
+//app.use('/api/organizations', organizationsRoutes);
 
 
 // Configuración del puerto
