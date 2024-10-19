@@ -3,8 +3,8 @@ import { Op } from 'sequelize';
 import PoolsModel from '../models/pools.Model.js';
 
 class PoolsRepository {
-  async findAll() {
-    return await PoolsModel.findAll();
+  async findAll(options = {}) {
+    return await PoolsModel.findAll(options);
   }
 
   async findById(id) {

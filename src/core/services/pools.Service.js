@@ -1,13 +1,22 @@
 import poolsRepository from '../../infrastructure/repositories/pools.Repository.js';
+import Lanes from '../../infrastructure/models/lanes.Model.js';
+import PoolDTO from '../dtos/pools.Dto.js';
 
 class PoolsService {
   async getAllPools(name) {
-    var pools = await poolsRepository.findAll();
+    const pools = await poolsRepository.findAll({
+      include: {
+        model: Lanes  
+      }
+    });
+
+    const poolDTOs = pools.map(pool => new PoolDTO(pool));
+
     if (name) {
       const nameLowerCase = name.toLowerCase();
-      return pools.filter(pool => pool.name.toLowerCase().includes(nameLowerCase));
+      return poolDTOs.filter(pool => pool.name.toLowerCase().includes(nameLowerCase));
     }
-    return pools;
+    return poolDTOs;
   }
 
   async getPoolById(id) {
