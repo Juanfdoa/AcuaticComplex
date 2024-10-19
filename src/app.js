@@ -18,6 +18,11 @@ app.use('/api/organizations', organizationsRoutes);
 app.set('PORT', process.env.PORT || 3000);
 
 // Iniciar el servidor
-app.listen(app.get('PORT'), () => {
-  console.log(`Servidor escuchando en el puerto`, app.get('PORT'));
+//app.listen(app.get('PORT'), () => {
+//  console.log(`Servidor escuchando en el puerto`, app.get('PORT'));
+//});
+
+const PORT = process.env.PORT || 3000; 
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon --exec babel-node src/app.js",
-    "clean": "rm -rf dist && mkdir dist",
+    "clean": "rimraf dist && mkdir dist",
     "build": "babel src -d dist",
     "start": "npm run build && node dist/app.js"
   },
@@ -27,6 +27,7 @@
     "@babel/preset-env": "^7.25.8",
     "@babel/runtime": "^7.25.7",
     "nodemon": "^3.1.7",
+    "rimraf": "^6.0.1",
     "sequelize-cli": "^6.6.2"
   }
 }
