@@ -32,7 +32,6 @@ Thumbs.db
 *.swp
 
 # Directorios de compilación
-dist/
 build/
 
 # Archivos de configuración de servicio
